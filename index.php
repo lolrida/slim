@@ -19,7 +19,8 @@ $app->get('/', function (Request $request, Response $response, $args) {
 $app->get('/alunni', function (Request $request, Response $response, $args) {
     $classi = new Classi();
     $response->getBody()->write($classi->stampa());  
-    return $response;
+    
+    return $response->withHeader('Content-Type', 'application/json');
 });
 
 $app->get('/alunni/{nome}', function (Request $request, Response $response, $args) {
