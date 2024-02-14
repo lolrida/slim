@@ -30,8 +30,18 @@ require_once './Alunni.php';
                 }
                 return $msg;
             }
-            
-
+            public function stampa(){
+                $array = array();
+                foreach($this->students as $student){
+                    $array[] = [
+                        "nome" => $student->getNome(),
+                        "cognome" => $student->getCognome(),
+                        "dataNascita" => $student->getDataNascita()
+                    ];
+                    
+                }
+                return json_encode($array);
+            }
         }
 
     ?>

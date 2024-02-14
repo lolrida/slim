@@ -18,7 +18,7 @@ $app->get('/', function (Request $request, Response $response, $args) {
 
 $app->get('/alunni', function (Request $request, Response $response, $args) {
     $classi = new Classi();
-    $response->getBody()->write($classi->displayStudents());  
+    $response->getBody()->write($classi->stampa());  
     return $response;
 });
 
@@ -28,5 +28,7 @@ $app->get('/alunni/{nome}', function (Request $request, Response $response, $arg
     $response->getBody()->write("" . $classi->searchStudent($name));  
     return $response;
 });
+
+
 
 $app->run();

@@ -42,10 +42,10 @@
     
     
     
+    
         
-        public function stampa() {
-            return "Nome: " .$this->nome . " | Cognome: " . $this->cognome . " | Data di nascita: " . $this->dataNascita;
-        }
+
+
     
         
     }
