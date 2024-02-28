@@ -1,5 +1,5 @@
 <?php
-    class Alunni {
+    class Alunni implements JsonSerializable{
         protected $nome;
         protected $cognome;
         protected $dataNascita;
@@ -39,9 +39,18 @@
             $this->dataNascita = $dataNascita;
         }
         
+        public function stampa(){
+            return "Nome: ".$this->nome." Cognome: ".$this->cognome." Data di nascita: ".$this->dataNascita;
+        }
     
     
-    
+        public function jsonSerialize(){
+            return [
+                'nome' => $this->nome,
+                'cognome' => $this->cognome,
+                'dataNascita' => $this->dataNascita
+            ];
+        }
     
         
 

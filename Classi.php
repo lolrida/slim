@@ -1,7 +1,7 @@
 <?php
 require_once './Alunni.php';
 
-        class Classi{
+        class Classi implements JsonSerializable{
             private $students = [];
             public function __construct(){
                 $this ->students=array();
@@ -22,26 +22,36 @@ require_once './Alunni.php';
             }
 
             public function searchStudent($nome){
-                $msg = '';
+                $msg;
                 foreach($this->students as $student){
                     if($student->getNome() == $nome){
-                        $msg .= $student->stampa()."<br>";
+                        $msg = [
+                            'nome' => $student->getNome(),
+                            'cognome' => $student->getCognome(),
+                            'dataNascita' => $student->getDataNascita()
+                        ];
                     }
                 }
                 return $msg;
             }
+
             public function stampa(){
-                $array = array();
+               
+                $msg = '';
                 foreach($this->students as $student){
-                    $array[] = [
-                        "nome" => $student->getNome(),
-                        "cognome" => $student->getCognome(),
-                        "dataNascita" => $student->getDataNascita()
-                    ];
-                    
+                    $msg .= $student->stampa();
                 }
-                return json_encode($array);
+                return $msg;
+            }
+
+            public function jsonSerialize()
+            {
+                return [
+                    'students' => $this->students
+                ];
             }
         }
+
+        
 
     ?>
