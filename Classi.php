@@ -7,9 +7,9 @@ require_once './Alunni.php';
                 $this ->students=array();
                 $this ->students[0] = new Alunni("Rida", "Carola", "02/04/2005");
                 $this ->students[1] = new Alunni("Giovanni", "Carola", "02/04/2005");
-                $this ->students[2] = new Alunni("Giovanni", "Carola", "02/04/2005");
-                $this ->students[3] = new Alunni("Giovanni", "Carola", "02/04/2005");
-                $this ->students[4] = new Alunni("Giovanni", "Carola", "02/04/2005");
+                $this ->students[2] = new Alunni("Marco", "Carola", "02/04/2005");
+                $this ->students[3] = new Alunni("Mario", "Carola", "02/04/2005");
+                $this ->students[4] = new Alunni("Claudio", "Benve", "02/04/2005");
             }
             
             public function displayStudents(){
@@ -34,6 +34,8 @@ require_once './Alunni.php';
                 }
                 return $msg;
             }
+
+            
 
             public function stampa(){
                
